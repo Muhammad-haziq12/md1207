@@ -118,7 +118,7 @@ function ad (){
       },
     };
 
-    const response = await fetch('/api/auths/login', options);
+    const response = await fetch(`${process.env.API_BASE_URL}/auths/login`, options);
     if (!response.ok) {
       // Si la réponse n'est pas OK, afficher un message d'erreur
       errorContainer.innerHTML = 'Username or Password Incorrect';

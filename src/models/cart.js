@@ -10,7 +10,7 @@ const readcarteFromUsername = async(username)=>{
             'Content-Type': 'application/json',
           },
         };
-        const response = await fetch('/api/cart/readcarteFromUsername', options);
+        const response = await fetch(`${process.env.API_BASE_URL}/cart/readcarteFromUsername`, options);
         const cart = await response.json();
         return cart;
       } catch (err) {
@@ -36,7 +36,7 @@ const readcarteFromUsername = async(username)=>{
                 'Content-Type': 'application/json',
               },
             };
-            const response = await fetch('/api/cart/addMenuToPanier', options);
+            const response = await fetch(`${process.env.API_BASE_URL}/cart/addMenuToPanier`, options);
             const cart = await response.json();
             // eslint-disable-next-line consistent-return
             return cart;
@@ -62,7 +62,7 @@ const readcarteFromUsername = async(username)=>{
                 'Content-Type': 'application/json',
               },
             };
-            const response = await fetch(`/api/cart/deletepaniertotal`, options);
+            const response = await fetch(`${process.env.API_BASE_URL}/cart/deletepaniertotal`, options);
             const deletedcart= await response.json();
             // eslint-disable-next-line consistent-return
             return deletedcart;

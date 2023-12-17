@@ -11,7 +11,7 @@ const userinformation = async(username)=>{
             'Content-Type': 'application/json',
           },
         };
-        const response = await fetch('/api/auths/username', options);
+        const response = await fetch(`${process.env.API_BASE_URL}/auths/username`, options);
         const user = await response.json();
         return user;
       } catch (err) {
@@ -22,7 +22,7 @@ const userinformation = async(username)=>{
 
   const getMenuByid  = async(id)=>{
       try{
-        const response = await fetch(`/api/menus/${id}`);
+        const response = await fetch(`${process.env.API_BASE_URL}/menus/${id}`);
         const menu = await response.json();
         return menu;
       }catch (err) {
@@ -47,7 +47,7 @@ const addOnemenutofavourites = async (username, menuId) => {
         'Content-Type': 'application/json',
       },
     };
-    const response = await fetch('/api/auths/addMenuLike', options);
+    const response = await fetch(`${process.env.API_BASE_URL}/auths/addMenuLike`, options);
     const menulike = await response.json();
 
     // eslint-disable-next-line consistent-return
@@ -60,7 +60,7 @@ const addOnemenutofavourites = async (username, menuId) => {
 
 const readAllUsers = async()=>{
   try {
-    const response = await fetch('/api/auths');
+    const response = await fetch(`${process.env.API_BASE_URL}/auths`);
     const users = await response.json();
     return users;
   } catch (err) {
@@ -84,7 +84,7 @@ const deleteOneUser = async (id) => {
         Authorization: user.token,
       },
     };
-    const response = await fetch(`/api/auths/${id}`, options);
+    const response = await fetch(`${process.env.API_BASE_URL}/auths/${id}`, options);
     const deleteduser= await response.json();
     // eslint-disable-next-line consistent-return
     return deleteduser;

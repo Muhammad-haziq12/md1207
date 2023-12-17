@@ -4,7 +4,7 @@ const authenticatedUser = getAuthenticatedUser();
 
 const readAllMenus = async () => {
     try {
-      const res = await fetch('/api/menus');
+      const res = await fetch(`${process.env.API_BASE_URL}/menus`);
       const menus = await res.json();
       return menus;
     } catch (err) {
@@ -24,7 +24,7 @@ const readAllMenus = async () => {
         },
       };
   
-      const response = await fetch('/api/menus', options);
+      const response = await fetch(`${process.env.API_BASE_URL}/menus`, options);
       const createdMenu = await response.json();
       return createdMenu;
     } catch (err) {
@@ -43,7 +43,7 @@ const readAllMenus = async () => {
           Authorization: authenticatedUser.token,
         },
       };
-      const response = await fetch(`/api/menus/${id}`, options);
+      const response = await fetch(`${process.env.API_BASE_URL}/menus/${id}`, options);
       const deletedmenu= await response.json();
       return deletedmenu;
     } catch (err) {
@@ -63,7 +63,7 @@ const readAllMenus = async () => {
         },
       };
   
-      const response = await fetch(`/api/menus/${id}`, options);
+      const response = await fetch(`${process.env.API_BASE_URL}/menus/${id}`, options);
   
       const updatedMenu = await response.json();
   
